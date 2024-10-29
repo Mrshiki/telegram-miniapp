@@ -3,7 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '7836967736:AAHZdjkZART3H9OaT8vtY-Ht923Os87waL8';
 const bot = new TelegramBot(token, { polling: true });
 
-const webAppUrl = 'https://yourdomain.com/index.html';
+const webAppUrl = 'https://mrshiki.github.io/telegram-miniapp';
 
 bot.onText(/\/start/, (msg) => {
     bot.sendMessage(msg.chat.id, 'Открой миниапп:', {

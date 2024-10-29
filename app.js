@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tg = window.Telegram.WebApp;
-
+    console.log('start')
     tg.ready();
 
     const user = tg.initDataUnsafe.user;
