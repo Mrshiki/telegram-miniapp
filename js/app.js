@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded event fired");
 
+    console.log('win ', window)
+
     if (window.Telegram && window.Telegram.WebApp) {
         const tg = window.Telegram.WebApp;
         console.log('Telegram Web App API найден и инициализирован');
