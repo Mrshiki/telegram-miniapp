@@ -1,21 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const tg = window.Telegram.WebApp; // Убедитесь, что это правильно
-    console.log('start ', tg);
+    console.log("DOMContentLoaded event fired"); // Проверка инициализации
 
-    tg.ready(); // Убедитесь, что API готово к работе
+    if (window.Telegram && window.Telegram.WebApp) {
+        const tg = window.Telegram.WebApp;
+        console.log('Telegram Web App API найден и инициализирован');
 
-    const user = tg.initDataUnsafe.user;
+        tg.ready();
 
-    if (user) {
-        console.log("User data found:", user);
-        document.getElementById("user-info").innerText = `Hello, ${user.first_name}!`;
+        const user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
+        if (user) {
+            document.getElementById("user-info").innerText = `Hello, ${user.first_name}!`;
+            console.log("User info:", user);
+        } else {
+            document.getElementById("user-info").innerText = "User data not available.";
+            console.warn("Пользовательские данные отсутствуют.");
+        }
+
+        document.getElementById('notify-btn').addEventListener("click", function () {
+            console.log("Notify button clicked");
+            tg.sendData(JSON.stringify({ message: 'User wants notifications!' }));
+        });
     } else {
-        console.warn("No user data found in initDataUnsafe.");
-        document.getElementById("user-info").innerText = "User data not available.";
+        console.warn("Telegram Web App API не найден. Убедитесь, что вы тестируете внутри Telegram.");
+        document.getElementById("user-info").innerText = `Hello, test user! (Not in Telegram)`;
     }
-
-    document.getElementById('notify-btn').addEventListener("click", function () {
-        console.log("Notify button clicked");
-        tg.sendData(JSON.stringify({ message: 'User wants notifications!' }));
-    });
 });
