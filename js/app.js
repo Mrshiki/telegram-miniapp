@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tg.sendData(JSON.stringify({ message: 'User wants notifications!' }));
         });
     } else {
-        console.warn("Telegram Web App API не найден. Убедитесь, что вы тестируете внутри Telegram.");
+        console.warn("Telegram Web App API не найден. Убедитесь, что вы тестируете внутри Telegram..");
         document.getElementById("user-info").innerText = `Hello, test user! (Not in Telegram)`;
     }
 });
