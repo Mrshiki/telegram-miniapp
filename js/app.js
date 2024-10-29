@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const tg = window.Telegram.WebApp; // Убедитесь, что это правильно
-    console.log('App started');
+    console.log('start ', tg);
 
     tg.ready(); // Убедитесь, что API готово к работе
 
