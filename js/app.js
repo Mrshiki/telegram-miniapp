@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOMContentLoaded event fired"); // Проверка инициализации
+    console.log("DOMContentLoaded event fired");
 
     if (window.Telegram && window.Telegram.WebApp) {
         const tg = window.Telegram.WebApp;
